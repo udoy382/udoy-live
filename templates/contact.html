@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Contact {% endblock title %}
+{% block contacturl %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock contacturl %}
+
+
+{% block header %}
+    <header class="header">
+        <div class="header-container">
+            <div class="header-text">
+                <h1><span>udoy</span>security</h1>
+                <h2>Talk to Our Team</h2>
+            </div>
+        </div>
+    </header>
+    {% endblock header %}
+
+    {% block content %}
+    <div class="main-container">
+        <div class="container">
+            <div class="left-site-items">
+                <p class="p-1">Reach out and talk to <i>Saifur Rahman Udoy</i> for security services, Programming, web development, media requests and general questions, by phone, email or the form below. </p>
+                <h2 class="h2-1">phone</h2>
+                <p class="ci">Phone Call (USA & Bangladesh) <br> <span>( +8801782299436 )</span><p>
+                <p class="ci">WhatsApp Number <br> <span>( +8801782299436 )</span></p>
+                <h2 class="h2-2">email</h2>
+                <p class="ci">Security Services and Support: <br><span>udoy436@gmail.com</span></p>
+                <p class="ci">Second Email: <br><span>srudoy436@gmail.com</span></p>
+                <h2 class="h2-3">Personal Info</h2>
+                <span>
+                    <p class="ci">udoysecurity</p>
+                    <p class="ci">Habiganj Sadar, Habiganj</p>
+                    <p class="ci">Bangladesh</p>
+                    <p class="ci">Word No: 9</p>
+                    <p class="ci">Holding No: 7231</p>
+                </span>
+            </div>
+            <div class="right-site-items">
+                <div class="right-container">
+                    <h2>Contact Information and Request Details</h2>
+                    {% if messages %}
+                    {% for message in messages %}
+                    
+                    <strong style='color: rgb(38, 186, 65);'>{{message}}</strong>
+
+                    {% endfor %}
+                    {% endif %}
+                    <br>
+                    <form action="{% url 'contact_page' %}" method="post">
+                        {% csrf_token %}
+                        <div class="fc">
+                            <div class="fc-1">
+                                <p>First Name*</p>
+                                <input type="text" name="first_name" id="first_name">
+                            </div>
+                            <div class="fc-2">
+                                <p>Last Name*</p>
+                                <input type="text" name="last_name" id="last_name">
+                            </div>
+                        </div>
+                        <div class="fc">
+                            <div class="fc-1">
+                                <p>Email*</p>
+                                <input type="email" name="email" id="email">
+                            </div>
+                            <div class="fc-2">
+                                <p>Company Name</p>
+                                <input type="text" name="company_name" id="company_name">
+                            </div>
+                        </div>
+                        <div class="fc">
+                            <div class="fc-1">
+                                <p>Phone Number*</p>
+                                <input type="number" name="phone_number" id="phone_number">
+                            </div>
+                            <div class="-fc-2">
+                                <p>City</p>
+                                <input type="text" name="city" id="city">
+                            </div>
+                        </div>
+                        <div class="form-text">
+                            <p>Select Your Gender:</p>
+                            <div class="r">
+                                <input type="radio" name="male" id="male">
+                                <span>Male</span>
+                            </div>
+                            <div class="r">
+                                <input type="radio" name="male" id="male">
+                                <span>Female</span>
+                            </div>
+                            <div class="r">
+                                <input type="radio" name="male" id="male">
+                                <span>Others</span>
+                            </div>
+                            <div class="form-msg">
+                                <p>Message*</p>
+                                <textarea name="message" id="message" cols="50" rows="5"></textarea>
+                            </div>
+                            <button type="submit" class="btn">Submit</button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}

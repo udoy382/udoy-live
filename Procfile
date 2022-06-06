@@ -1,0 +1,1 @@
+web: gunicorn udoysecurity.wsgi --log-file -
